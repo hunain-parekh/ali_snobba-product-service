@@ -16,9 +16,9 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private String shortDesc;
+    @Column(length = 500)
     private String longDesc;
     private String imageLink;
     private Long price;
