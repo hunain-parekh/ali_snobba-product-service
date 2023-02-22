@@ -1,11 +1,8 @@
 package com.ali_snobba.productservice;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import com.ali_snobba.productservice.Model.Product;
 
 @SpringBootTest
