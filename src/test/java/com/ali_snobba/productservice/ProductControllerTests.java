@@ -116,6 +116,10 @@ class ProductControllerTests {
 		.contentType(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())
 		.andExpect(content().json(jsonProduct.write(product).getJson()));
+
+		mvc.perform(get("/api/product/2")
+		.contentType(MediaType.APPLICATION_JSON))
+		.andExpect(status().isNotFound());
 	}
 }
 

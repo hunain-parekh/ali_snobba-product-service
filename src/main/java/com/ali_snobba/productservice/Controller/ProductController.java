@@ -3,6 +3,7 @@ package com.ali_snobba.productservice.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,9 +33,13 @@ public class ProductController {
         return productRepo.findAll();
     }
 
-    @GetMapping("{id}")
-    public Product getProductById(@PathVariable Long id){
-        return productRepo.findById(id).orElse(null);
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable Long id){
+        Product product = productRepo.findById(id).orElse(null);
+        if(product == null){
+            return ResponseEntity.status(404).body(null);
+        }
+        return ResponseEntity.status(200).body(product);
     }
     
 }
